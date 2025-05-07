@@ -24,7 +24,7 @@ const books = [
 console.log(filterByRating(books));
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
-  return arrays.flat();
+  return arrays.reduce((acc, curr) => acc.concat(curr), []);
 }
 
 console.log(concatenateArrays(["a", "b"], ["c"]));
@@ -32,7 +32,7 @@ console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
 class Vihicale {
   private make: string;
-  private year: number;
+  year: number;
 
   constructor(make: string, year: number) {
     this.make = make;
@@ -60,3 +60,35 @@ class Car extends Vihicale {
 const myCar = new Car("Toyota", 2020, "Corolla");
 myCar.getInfo();
 myCar.getModel();
+
+function processValue(value: string | number): number {
+  if (typeof value === "string") {
+    return value.length;
+  }
+  return value * 2;
+}
+
+console.log(processValue("hello"));
+console.log(processValue(10));
+
+interface Product {
+  name: string;
+  price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length > 0) {
+    const getMostExpensiveProduct = products.sort((a, b) => b.price - a.price);
+    return getMostExpensiveProduct[0];
+  }
+  return null;
+}
+
+const products = [
+  { name: "Pen", price: 10 },
+  { name: "Notebook", price: 25 },
+  { name: "Football", price: 500 },
+  { name: "Bag", price: 50 },
+];
+
+console.log(getMostExpensiveProduct(products));
