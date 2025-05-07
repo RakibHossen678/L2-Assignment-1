@@ -13,6 +13,9 @@ const generateLengthOrString = (
       return val.length;
     } else undefined;
   };
+
+generateLengthOrString('Hello')
+generateLengthOrString(5)
 ```
 In this example, function can accept both a string and a number.
 
