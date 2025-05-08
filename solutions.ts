@@ -5,9 +5,9 @@ function formatString(input: string, toUpper?: boolean): string {
   return input.toLowerCase();
 }
 
-console.log(formatString("Hello"));
-console.log(formatString("Hello", true));
-console.log(formatString("Hello", false));
+formatString("Hello");
+formatString("Hello", true);
+formatString("Hello", false);
 
 function filterByRating(
   items: { title: string; rating: number }[]
@@ -21,14 +21,14 @@ const books = [
   { title: "Book B", rating: 3.2 },
   { title: "Book C", rating: 5.0 },
 ];
-console.log(filterByRating(books));
+filterByRating(books);
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.reduce((acc, curr) => acc.concat(curr), []);
 }
 
-console.log(concatenateArrays(["a", "b"], ["c"]));
-console.log(concatenateArrays([1, 2], [3, 4], [5]));
+concatenateArrays(["a", "b"], ["c"]);
+concatenateArrays([1, 2], [3, 4], [5]);
 
 class Vihicale {
   private make: string;
@@ -68,8 +68,8 @@ function processValue(value: string | number): number {
   return value * 2;
 }
 
-console.log(processValue("hello"));
-console.log(processValue(10));
+processValue("hello");
+processValue(10);
 
 interface Product {
   name: string;
@@ -91,7 +91,7 @@ const products = [
   { name: "Bag", price: 50 },
 ];
 
-console.log(getMostExpensiveProduct(products));
+getMostExpensiveProduct(products);
 
 enum Day {
   Monday,
@@ -110,8 +110,8 @@ function getDayType(day: Day): string {
   return "Weekday";
 }
 
-console.log(getDayType(Day.Monday));
-console.log(getDayType(Day.Sunday));
+getDayType(Day.Monday);
+getDayType(Day.Sunday);
 
 async function squareAsync(n: number): Promise<number> {
   return new Promise((resolve, reject) => {
